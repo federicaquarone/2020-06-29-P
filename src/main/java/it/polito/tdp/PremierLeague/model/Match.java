@@ -29,6 +29,22 @@ public class Match {
 		this.date = date;
 	}
 	
+	
+	
+	public Match(Integer matchID, Integer teamHomeID, Integer teamAwayID, Integer teamHomeFormation,
+			Integer teamAwayFormation, Integer resultOfTeamHome, LocalDateTime date) {
+		super();
+		this.matchID = matchID;
+		this.teamHomeID = teamHomeID;
+		this.teamAwayID = teamAwayID;
+		this.teamHomeFormation = teamHomeFormation;
+		this.teamAwayFormation = teamAwayFormation;
+		this.resultOfTeamHome = resultOfTeamHome;
+		this.date = date;
+	}
+
+
+
 	public Integer getMatchID() {
 		return matchID;
 	}
@@ -98,7 +114,7 @@ public class Match {
 
 	@Override
 	public String toString() {
-		return "[" + matchID + "] " + teamHomeNAME + " vs. " + teamAwayNAME;
+		return "[" + matchID + "] ";
 	}
 
 	@Override
@@ -125,5 +141,6 @@ public class Match {
 			return false;
 		return true;
 	}
+	
 	
 }

@@ -39,7 +39,7 @@ public class FXMLController {
     private TextField txtMinuti; // Value injected by FXMLLoader
 
     @FXML // fx:id="cmbMese"
-    private ComboBox<?> cmbMese; // Value injected by FXMLLoader
+    private ComboBox<Integer> cmbMese; // Value injected by FXMLLoader
 
     @FXML // fx:id="cmbM1"
     private ComboBox<?> cmbM1; // Value injected by FXMLLoader
@@ -52,16 +52,24 @@ public class FXMLController {
 
     @FXML
     void doConnessioneMassima(ActionEvent event) {
-    	
+    	txtResult.clear();
+    	txtResult.appendText(this.model.matchMigliori());
     }
 
     @FXML
     void doCreaGrafo(ActionEvent event) {
+    	txtResult.clear();
+    	
+    	model.creaGrafo(cmbMese.getValue(), Integer.parseInt(txtMinuti.getText()));
+    	txtResult.appendText("#VERTICI:" + model.getNVertici()+"\n");
+    	txtResult.appendText("#ARCHI: " + model.getArchi());
+    	
     	
     }
 
     @FXML
     void doCollegamento(ActionEvent event) {
+    	
     	
     }
 
@@ -79,6 +87,7 @@ public class FXMLController {
     
     public void setModel(Model model) {
     	this.model = model;
+        this.cmbMese.getItems().addAll(model.getMesi());
   
     }
     
